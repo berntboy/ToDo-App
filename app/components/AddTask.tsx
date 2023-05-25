@@ -1,4 +1,5 @@
 import { AiOutlinePlus } from "react-icons/ai";
+import Modal from "./Modal";
 
 const AddTask = () => {
   return (
@@ -6,6 +7,8 @@ const AddTask = () => {
       <button className="btn btn-prrimary w-full">
         Add new task <AiOutlinePlus className="ml-2" size={18} />
       </button>
+
+      <Modal />
     </div>
   );
 };
