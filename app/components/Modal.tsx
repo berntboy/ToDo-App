@@ -1,13 +1,14 @@
 interface ModalProps {
   modalOpen: boolean;
+  setModalOpen: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ modalOpen }) => {
+const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
   return (
     <div className={`modal ${modalOpen ? "modal-open" : ""}`}>
       <div className="modal-box relative">
         <label
-          htmlFor="my-modal-3"
+          onClick={() => setModalOpen(false)}
           className="btn btn-sm btn-circle absolute right-2 top-2"
         >
           ✕
