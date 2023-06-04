@@ -11,6 +11,7 @@ const AddTask = () => {
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     console.log(newTaskValue);
+    setNewTaskValue("");
   };
 
   return (
