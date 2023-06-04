@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
 
 const AddTask = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [newTaskValue, setNewTaskValue] = useState<string>("");
+
+  const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    console.log(newTaskValue);
+  };
 
   return (
     <div>
@@ -16,10 +22,12 @@ const AddTask = () => {
         Add new task <AiOutlinePlus className="ml-2" size={18} />
       </button>
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-        <form>
+        <form onSubmit={handleSubmitNewTodo}>
           <h3 className="font-bold text-lg">Add new task</h3>
           <div className="modal-action">
             <input
+              value={newTaskValue}
+              onChange={(e) => setNewTaskValue(e.target.value)}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
