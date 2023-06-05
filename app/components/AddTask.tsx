@@ -4,8 +4,10 @@ import { FormEventHandler, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
 import { addTodo } from "@/api";
+import { useRouter } from "next/navigation";
 
 const AddTask = () => {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>("");
 
@@ -17,6 +19,7 @@ const AddTask = () => {
     });
     setNewTaskValue("");
     setModalOpen(false);
+    router.refresh();
   };
 
   return (
